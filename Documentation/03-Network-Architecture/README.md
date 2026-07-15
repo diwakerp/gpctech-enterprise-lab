@@ -2,42 +2,120 @@
 
 ## Overview
 
-This document describes the network architecture of the GPCTech Enterprise Infrastructure Lab.
+The GPCTech Enterprise Lab uses network segmentation to separate servers, user workstations, guest devices and IoT/camera infrastructure.
 
-The design represents a small enterprise environment containing internal servers, user endpoints, networking equipment and secure remote access capabilities.
+The environment uses a UniFi Dream Machine as the primary gateway, firewall and routing device.
 
 ---
 
-# Current Architecture
+# Internet Connectivity
 Internet
 |
-ISP Router
+Sky Broadband Router
 |
-UniFi Gateway
+WAN Connection
 |
-Network Switch
-|
-Servers / Clients
+UniFi Dream Machine
 
 
+WAN Configuration:
+
+| Component | Address |
+|---|---|
+| Sky Router | Private WAN Gateway |
+| UDM WAN Interface | 192.168.0.7 |
+
+The ISP connection uses dynamic public addressing.
 
 ---
 
-# Network Components
+# Internal Networks
 
-| Component | Technology | Purpose |
+| Network | Subnet | Purpose |
 |---|---|---|
-| Gateway | UniFi | Routing and firewall |
-| Switch | UniFi | Internal connectivity |
-| Servers | Windows Server | Infrastructure services |
-| Clients | Windows | User endpoints |
+| Server Network | 192.168.1.0/24 | Infrastructure servers |
+| Workstation Network | 192.168.7.0/24 | User devices |
+| Guest Network | 192.168.6.0/24 | Guest internet access |
+| Camera Network | TBD | IoT / Cameras |
 
 ---
 
-# Future Security Enhancements
+# Wireless SSIDs
 
-- VLAN segmentation
-- Network monitoring
-- Firewall logging
-- SIEM integration
-- Zero Trust access
+## APR-2 Workstations
+
+Purpose:
+
+- Laptop devices
+- Personal workstations
+- Administrative devices
+
+Network:
+192.168.7.0/24
+
+
+---
+
+## U-Wifi
+
+Purpose:
+
+- WiFi-enabled cameras
+- IoT devices
+
+Network:
+192.168.18.0/24
+
+
+---
+
+## Sky-DD
+
+Purpose:
+
+- Guest wireless access
+- External devices
+
+Network:
+192.168.6.0/24
+
+
+---
+
+# Network Segmentation Design
+             Internet
+                |
+          Sky Router
+                |
+              UDM
+                |
+   -----------------------------------
+   |          |            |         |
+   Servers Workstations Guest       U-Wifi
+192.168.1.x 192.168.7.x 192.168.6.x 192.168.18.x
+
+
+
+---
+
+# Security Benefits
+
+Network separation provides:
+
+- Reduced attack surface
+- Isolation of guest devices
+- Protection of server infrastructure
+- Improved incident response capability
+- Better visibility for security monitoring
+
+---
+
+# Future Improvements
+
+Planned enhancements:
+
+- Dedicated VLAN IDs
+- Firewall rules between networks
+- IDS/IPS monitoring
+- Network logging to SIEM
+- Automated threat detection
