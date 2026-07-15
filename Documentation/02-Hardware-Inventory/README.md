@@ -109,7 +109,7 @@ The environment consists of multiple mini PC servers running enterprise workload
 | Purpose | Centralised Storage and Backup |
 
 Storage organisation:
-NAS
+Storage Pool
 │
 ├── Common
 │ └── Department Shared Data
@@ -118,16 +118,25 @@ NAS
 └── Restricted User Data
 
 
-Access controls are configured using folder permissions.
-
-Remote access is provided through Cloudflare Zero Trust client connectivity.
 
 ---
 
-# Future Improvements
+## Access Control
 
-- Add asset lifecycle tracking
-- Add monitoring integration
-- Add vulnerability scanning
-- Add SIEM integration
-- Add automated inventory collection
+Security controls implemented:
+
+- NTFS permissions
+- Folder-level access control
+- User-based permissions
+- Restricted personal storage
+
+---
+
+## Remote Access
+
+Remote access is provided through:
+
+- Cloudflare Tunnel
+- Cloudflare Zero Trust WARP Client
+
+This allows secure access without exposing internal services directly to the internet.
