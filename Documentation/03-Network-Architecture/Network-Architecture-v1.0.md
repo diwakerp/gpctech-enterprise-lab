@@ -157,7 +157,3 @@ SIEM network visibility
 
 ---
 
-## Commit this as:
-
-```text
-Added network architecture diagram v1.0
