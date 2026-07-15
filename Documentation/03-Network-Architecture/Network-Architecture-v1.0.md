@@ -23,43 +23,43 @@ flowchart TB
 
 Internet((Internet))
 
-Sky[Sky Broadband Router<br/>WAN Gateway]
+Sky["Sky Broadband Router<br>WAN Gateway"]
 
-UDM[UniFi Dream Machine<br/>Gateway / Firewall / Router<br/>WAN: 192.168.0.7]
+UDM["UniFi Dream Machine<br>Gateway Firewall Router<br>WAN 192.168.0.7"]
 
-Switch[UniFi Switch Infrastructure]
+Switch["UniFi Switch Infrastructure"]
 
 Internet --> Sky
 Sky --> UDM
 UDM --> Switch
 
+Switch --> Servers["SERVER NETWORK<br>192.168.1.0/24"]
 
-Switch --> Servers[SERVER NETWORK<br/>192.168.1.0/24]
+Switch --> Workstations["WORKSTATION NETWORK<br>192.168.7.0/24"]
 
-Switch --> Workstations[WORKSTATION NETWORK<br/>192.168.7.0/24]
+Switch --> Guest["GUEST NETWORK<br>192.168.6.0/24"]
 
-Switch --> Guest[GUEST NETWORK<br/>192.168.6.0/24]
-
-Switch --> Cameras[CAMERA / IoT NETWORK<br/>192.168.18.0/24]
-
-
-Servers --> DC[DLAB-SRV01-DC1<br/>Domain Controller]
-Servers --> FS[DLAB-SRV01-FS1<br/>File Server]
-Servers --> PS[DLAB-SRV01-PS1<br/>Print Server]
-
-Workstations --> Clients[Laptops<br/>Desktop Devices]
-
-Guest --> GuestDevices[Guest Devices]
-
-Cameras --> CCTV[WiFi Cameras]
+Switch --> Cameras["CAMERA IoT NETWORK<br>192.168.18.0/24"]
 
 
-UDM --> Cloudflare[Cloudflare Zero Trust]
+Servers --> DC["DLAB-SRV01-DC1<br>Domain Controller"]
+Servers --> FS["DLAB-SRV01-FS1<br>File Server"]
+Servers --> PS["DLAB-SRV01-PS1<br>Print Server"]
 
-Cloudflare --> Tunnel[Cloudflare Tunnel<br/>Docker Connector]
 
-Tunnel --> Internal[Private Lab Resources]
+Workstations --> Clients["Laptop and Desktop Devices"]
 
+Guest --> GuestDevices["Guest Devices"]
+
+Cameras --> CCTV["WiFi Cameras"]
+
+
+UDM --> Cloudflare["Cloudflare Zero Trust"]
+
+Cloudflare --> Tunnel["Cloudflare Tunnel<br>Docker Connector"]
+
+Tunnel --> Internal["Private Lab Resources"]
+```
 
 | Network             | Subnet          | Purpose              | Security Level |
 | ------------------- | --------------- | -------------------- | -------------- |
