@@ -2,35 +2,57 @@
 
 ## Overview
 
-This document contains details of all servers deployed within the GPCTech Enterprise Infrastructure Lab.
+This document contains details of the servers deployed within the DLAB enterprise infrastructure environment.
+
+The environment uses Hyper-V virtualisation where multiple Windows Server workloads are hosted on physical mini PC infrastructure.
 
 ---
 
-# Server List
-
-| Hostname | OS | Role | Status |
-|---|---|---|---|
-| DLAB-SRV01-DC1 | Windows Server | Domain Controller | Active |
-| DLAB-SRV01-FS1 | Windows Server | File Server | Active |
-| DLAB-SRV-01PS1 | Windows Server | Print Server | Active |
-
----
-
-# Naming Convention
+# Server Naming Convention
 
 Example:
 
 DLAB-SRV01-DC1
 
-Meaning:
+Breakdown:
 
-DLAB = Organisation
+| Segment | Meaning |
+|---|---|
+| DLAB | Development Lab Environment |
+| SRV01 | Physical Server Host |
+| DC1 | Domain Controller Instance |
 
-SRV01 = Bare Metal Server 1
+---
 
-DC = Server Role
+# Physical Hosts
 
-1 = Instance Number
+| Hostname | Type | Purpose |
+|---|---|---|
+| DLAB-SRV01 | Bare Metal Mini PC | Hyper-V Virtualisation Host |
+
+---
+
+# Virtual Servers
+
+| Hostname | Operating System | Role | Status |
+|---|---|---|---|
+| DLAB-SRV01-DC1 | Windows Server | Domain Controller / DNS | Active |
+| DLAB-SRV01-FS1 | Windows Server | File Server | Active |
+| DLAB-SRV01-PS1 | Windows Server | Print Server | Active |
+
+---
+
+# Virtualisation Platform
+
+Platform:
+
+- Microsoft Hyper-V
+
+Purpose:
+
+- Host multiple enterprise workloads
+- Simulate production infrastructure
+- Enable isolated server deployments
 
 ---
 
@@ -38,6 +60,7 @@ DC = Server Role
 
 Planned:
 
-- Security Monitoring Server
-- SIEM Integration
-- Automation Server
+- Security Monitoring Platform
+- Microsoft Sentinel Integration
+- Wazuh Server
+- Automation Platform
