@@ -55,21 +55,26 @@ Devices --> DC
 DC --> DNS
 
 DC --> GPO
+```
+---
 
-#Authentication Flow
-User Device
+## Authentication Flow
 
-     |
-     |
-Domain Authentication
-
-     |
-     |
-Active Directory
-
-     |
-     |
-Access Granted
+```text
+User Login
+      |
+      v
+Domain Workstation
+      |
+      v
+Kerberos Authentication
+      |
+      v
+DLAB-SRV01-DC1
+      |
+      v
+User Authenticated
+```
 
 Core Services
 | Service                          | Purpose                  |
@@ -120,3 +125,33 @@ Example:
 192.168.1.11
 
 ---
+
+```text
+DLAB.LOCAL
+
+├── Admin
+│   ├── Domain Admins
+│   ├── Service Accounts
+│   └── Privileged Workstations
+│
+├── Users
+│   ├── HR
+│   ├── Engineers
+│   ├── General
+│   └── Guests
+│
+├── Computers
+│   ├── Workstations
+│   ├── Laptops
+│   └── Test Machines
+│
+├── Servers
+│   ├── Domain Controllers
+│   ├── File Servers
+│   ├── Print Servers
+│   ├── Splunk
+│   └── Management
+│
+├── Groups
+│
+└── Service Accounts
