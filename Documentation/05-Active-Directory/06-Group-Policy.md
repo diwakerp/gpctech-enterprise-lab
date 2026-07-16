@@ -41,3 +41,27 @@ PowerShell logging has been enabled to improve visibility into script execution 
 ### Security Benefit
 
 These settings provide detailed telemetry for PowerShell activity. The resulting events are valuable for detecting malicious scripts, encoded commands, and post-exploitation techniques, and are intended for collection by Splunk and Microsoft Sentinel.
+
+
+## Microsoft Defender Security Baseline
+
+The workstation security baseline includes Microsoft Defender Antivirus policies to improve endpoint protection.
+
+### Configured Policies
+
+| Policy | Configuration |
+|---------|---------------|
+| Microsoft Defender Antivirus | Enabled |
+| Real-time Protection | Enabled |
+| Behavior Monitoring | Enabled |
+| Scan Downloads | Enabled |
+| MAPS Reporting | Advanced |
+| Automatic Sample Submission | Safe Samples |
+
+### Evidence
+
+![Defender Security Baseline](../../Screenshots/Group-Policy/07-defender-security-baseline.png)
+![Defender Security Baseline](../../Screenshots/Group-Policy/08-defender-security-baseline.png)
+### Security Benefit
+
+These settings improve malware detection, behavioral monitoring and cloud-assisted threat protection. Alerts and related Windows Defender events can later be collected by Splunk and Microsoft Sentinel for investigation and correlation.
