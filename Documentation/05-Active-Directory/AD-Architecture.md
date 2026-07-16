@@ -99,29 +99,18 @@ SIEM integration
 
 ---
 
-# Step 3 — I need your actual AD details
-
-Do not guess. Tell me your current setup.
-
-Reply with:
 
 ## 1. Domain name
-
-Example:
 Dlab.local
 
 ---
 
 ## 2. Windows Server version
-
-Example:
-Windows Server 2022 Standard
+Windows Server 2022 Eval
 
 ---
 
 ## 3. Domain Controller IP
-
-Example:
 192.168.1.11
 
 ---
