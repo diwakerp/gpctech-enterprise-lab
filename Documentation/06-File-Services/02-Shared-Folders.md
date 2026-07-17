@@ -37,9 +37,12 @@ Storage is provided using Windows Storage Spaces with mirrored storage for resil
 
 # Security Model
 
-Access will be controlled using:
+Each share will use:
 
-- Active Directory Security Groups
-- NTFS Permissions
-- SMB Share Permissions
-- Auditing
+Share Permissions
+NTFS Permissions
+Active Directory Groups
+Auditing
+Access-Based Enumeration
+
+No permissions are assigned directly to users.
