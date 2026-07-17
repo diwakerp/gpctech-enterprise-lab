@@ -71,6 +71,6 @@ Shared Folder
 
 ## Evidence
 
-![Permissions](../../Screenshots/File-Server/05-share-permissions.png)
+![Permissions](../../Screenshots/File-Server/05-ntfs-permissions-common.png)
 
-![NTFS](../../Screenshots/File-Server/06-ntfs-permissions.png)
+![NTFS](../../Screenshots/File-Server/06-ntfs-permissions-personal.png)
