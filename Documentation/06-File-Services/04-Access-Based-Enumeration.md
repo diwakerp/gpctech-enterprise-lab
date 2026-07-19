@@ -1,32 +1,61 @@
-# Access-Based Enumeration
+# Access-Based Enumeration (ABE)
 
 ## Overview
 
-Access-Based Enumeration (ABE) allows users to view only the folders and files for which they have permissions.
+Access-Based Enumeration (ABE) has been implemented on the enterprise file server to ensure users only see folders and files for which they have been granted access permissions.
 
-This reduces information disclosure and improves the user experience by hiding inaccessible resources.
+ABE reduces unnecessary information disclosure by hiding inaccessible shares and directories from users, improving both security and usability.
+
+---
+
+## Implementation
+
+Access-Based Enumeration has been enabled on all departmental SMB shares hosted on `DLAB-SRV01-FS1`.
+
+The configuration works alongside Active Directory security groups and NTFS permissions to enforce role-based access control.
 
 ---
 
 ## Benefits
 
-- Improved security
-- Reduced information exposure
-- Cleaner user experience
-- Enterprise best practice
-
----
-
-## Future Implementation
-
-ABE is enabled on departmental shares to ensure users can only discover folders they are authorised to access.
+- Prevents users from discovering unauthorized departmental folders
+- Reduces information disclosure
+- Simplifies navigation by displaying only accessible resources
+- Supports enterprise least-privilege security practices
 
 ---
 
 ## Validation
 
-Current implementation allows users to:
+The implementation was verified by testing user accounts with different Active Directory group memberships.
 
-- View only authorised shares
-- Be unable to browse restricted folders
-- Receive no visibility into confidential departments
+Expected behaviour:
+
+- Authorized users can view and access permitted shares.
+- Unauthorized departmental folders remain hidden.
+- Access attempts to restricted folders are denied and logged for auditing.
+
+---
+
+## Enterprise Architecture
+
+```text
+Active Directory Security Groups
+            │
+            ▼
+      NTFS Permissions
+            │
+            ▼
+Access-Based Enumeration
+            │
+            ▼
+ Visible Shares for User
+```
+
+---
+
+## Evidence
+
+![Access-Based Enumeration Configuration](../../Screenshots/File-Server/07-access-based-enumeration.png)
+
+![User Share Visibility Test](../../Screenshots/File-Server/08-abe-validation.png)
