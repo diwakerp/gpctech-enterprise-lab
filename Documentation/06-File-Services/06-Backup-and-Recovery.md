@@ -4,7 +4,7 @@
 
 The GPCTech Enterprise Lab includes a dedicated backup infrastructure designed to protect critical services and support disaster recovery scenarios.
 
-Backups are managed using **Veeam Backup & Replication**, providing image-level backups of the virtual infrastructure and server workloads.
+Backups are managed using **Veeam Backup & Replication**, providing image-level backups of the virtual infrastructure and server workloads. Still many things in process.
 
 ---
 
